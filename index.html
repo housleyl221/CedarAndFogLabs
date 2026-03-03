@@ -8,7 +8,7 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌲</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
   <style>
     *,
     *::before,
@@ -19,13 +19,15 @@
     }
 
     :root {
-      --fog-light: #e8ecf1;
-      --fog-mid: #c5cdd8;
-      --fog-dark: #6b7a8d;
+      --sage: #7a9a7e;
+      --sage-light: #9bb49e;
+      --sage-muted: #8a9e8c;
       --cedar: #8b5e3c;
       --cedar-light: #a47551;
-      --text: #2c3440;
-      --text-muted: #5a6575;
+      --cream: #faf8f4;
+      --cream-mid: #f2efe8;
+      --text: #3a3632;
+      --text-muted: #7a756e;
     }
 
     html {
@@ -38,13 +40,38 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(
-        160deg,
-        #f0f3f7 0%,
-        var(--fog-light) 30%,
-        #dfe4ec 60%,
-        #e2e7ef 100%
-      );
+      background-color: var(--cream);
+      background-image:
+        /* Paper fiber — thin hairlines with more spacing */
+        repeating-linear-gradient(
+          115deg,
+          transparent,
+          transparent 8px,
+          rgba(139,94,60,0.035) 8px,
+          rgba(139,94,60,0.035) 8.5px
+        ),
+        repeating-linear-gradient(
+          55deg,
+          transparent,
+          transparent 12px,
+          rgba(90,80,70,0.03) 12px,
+          rgba(90,80,70,0.03) 12.5px
+        ),
+        repeating-linear-gradient(
+          165deg,
+          transparent,
+          transparent 10px,
+          rgba(122,154,126,0.025) 10px,
+          rgba(122,154,126,0.025) 10.5px
+        ),
+        /* Base gradient */
+        linear-gradient(
+          160deg,
+          var(--cream) 0%,
+          var(--cream-mid) 40%,
+          #ede9e1 70%,
+          #f0ece5 100%
+        );
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
         Helvetica, Arial, sans-serif;
       color: var(--text);
@@ -82,10 +109,11 @@
     }
 
     h1 {
-      font-family: "Fraunces", Georgia, serif;
-      font-weight: 300;
+      font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 500;
       font-size: clamp(1.75rem, 4vw, 2.75rem);
-      letter-spacing: -0.01em;
+      letter-spacing: -0.02em;
       line-height: 1.2;
       color: var(--text);
     }
@@ -93,13 +121,13 @@
     .divider {
       width: 48px;
       height: 1px;
-      background: var(--cedar);
+      background: var(--sage);
       margin: 1.5rem auto;
       opacity: 0.5;
     }
 
     .email a {
-      color: var(--fog-dark);
+      color: var(--text-muted);
       text-decoration: none;
       font-size: 0.95rem;
       letter-spacing: 0.02em;
@@ -108,11 +136,11 @@
 
     .email a:hover,
     .email a:focus-visible {
-      color: var(--cedar);
+      color: var(--sage);
     }
 
     .email a:focus-visible {
-      outline: 2px solid var(--cedar-light);
+      outline: 2px solid var(--sage-light);
       outline-offset: 4px;
       border-radius: 2px;
     }
@@ -129,7 +157,7 @@
     <svg class="tree" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <!-- Cedar tree glyph -->
       <path d="M24 4 L16 18 L19 18 L12 30 L16 30 L10 42 L38 42 L32 30 L36 30 L29 18 L32 18 Z"
-            fill="var(--cedar)" opacity="0.7"/>
+            fill="var(--sage)" opacity="0.7"/>
       <rect x="22" y="42" width="4" height="4" rx="0.5" fill="var(--cedar)" opacity="0.5"/>
     </svg>
 
