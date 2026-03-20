@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cedar and Fog Labs</title>
-  <meta name="description" content="Cedar and Fog Labs — software studio crafting thoughtful digital tools.">
+  <meta name="description" content="Cedar and Fog Labs — software studio crafting thoughtful digital tools. Makers of Settlewood, the AI-powered home decluttering app.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌲</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Lora:wght@500;600&display=swap" rel="stylesheet">
   <style>
     *,
     *::before,
@@ -22,6 +22,10 @@
       --sage: #7a9a7e;
       --sage-light: #9bb49e;
       --sage-muted: #8a9e8c;
+      --sage-pale: #e8f0e9;
+      --sw-sage: #527264;
+      --sw-sage-dark: #3D5447;
+      --sw-accent: #C4926E;
       --cedar: #8b5e3c;
       --cedar-light: #a47551;
       --cream: #faf8f4;
@@ -42,7 +46,6 @@
       justify-content: center;
       background-color: var(--cream);
       background-image:
-        /* Paper fiber — thin hairlines with more spacing */
         repeating-linear-gradient(
           115deg,
           transparent,
@@ -64,7 +67,6 @@
           rgba(122,154,126,0.025) 10px,
           rgba(122,154,126,0.025) 10.5px
         ),
-        /* Base gradient */
         linear-gradient(
           160deg,
           var(--cream) 0%,
@@ -80,6 +82,8 @@
     }
 
     .content {
+      max-width: 540px;
+      width: 100%;
       opacity: 0;
       animation: fade-in 1.2s ease-out 0.2s forwards;
     }
@@ -89,12 +93,27 @@
         opacity: 1;
         animation: none;
       }
+      .product-card {
+        opacity: 1;
+        animation: none;
+      }
     }
 
     @keyframes fade-in {
       from {
         opacity: 0;
         transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes card-in {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
       }
       to {
         opacity: 1;
@@ -129,15 +148,159 @@
     .tagline {
       font-size: 1.05rem;
       color: var(--text-muted);
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
     }
 
-    .product {
+    /* --- Product card --- */
+    .product-card {
+      position: relative;
+      overflow: hidden;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(82,114,100,0.15);
+      border-radius: 16px;
+      padding: 2rem 1.75rem 1.75rem;
+      margin: 0 auto 2rem;
+      text-align: left;
+      box-shadow:
+        0 1px 2px rgba(82,114,100,0.06),
+        0 4px 12px rgba(82,114,100,0.08),
+        0 12px 32px rgba(58,54,50,0.06);
+      transition: box-shadow 0.35s ease, transform 0.35s ease, border-color 0.35s ease;
+      opacity: 0;
+      animation: card-in 0.8s ease-out 0.6s forwards;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .product-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--sw-sage), var(--sw-accent), var(--sw-sage));
+      opacity: 0.8;
+    }
+
+    .product-card:hover {
+      box-shadow:
+        0 2px 4px rgba(82,114,100,0.08),
+        0 8px 20px rgba(82,114,100,0.12),
+        0 20px 44px rgba(58,54,50,0.1);
+      transform: translateY(-3px);
+      border-color: rgba(82,114,100,0.25);
+    }
+
+    .product-card:focus-visible {
+      outline: 2px solid var(--sw-sage);
+      outline-offset: 3px;
+      border-radius: 16px;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-title {
+      font-family: "Lora", Georgia, "Times New Roman", serif;
+      font-weight: 600;
+      font-size: 1.5rem;
+      letter-spacing: -0.01em;
+      color: var(--sw-sage);
+    }
+
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: "DM Sans", sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--sw-sage);
+      background: var(--sage-pale);
+      padding: 4px 10px;
+      border-radius: 99px;
+      border: 1px solid rgba(82,114,100,0.12);
+    }
+
+    .live-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--sw-sage);
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.35; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .live-dot {
+        animation: none;
+      }
+    }
+
+    .card-subtitle {
+      font-family: "DM Sans", sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--sw-accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .card-description {
       font-size: 0.95rem;
+      line-height: 1.65;
       color: var(--text-muted);
-      max-width: 800px;
-      margin: 0 auto 1.5rem;
-      line-height: 1.5;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: "DM Sans", sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #fff;
+      background: var(--sw-sage);
+      padding: 0.625rem 1.25rem;
+      border-radius: 10px;
+      letter-spacing: 0.01em;
+      transition: background 0.25s ease, gap 0.25s ease;
+    }
+
+    .product-card:hover .card-cta-btn {
+      background: var(--sw-sage-dark);
+      gap: 11px;
+    }
+
+    .card-cta-btn svg {
+      width: 14px;
+      height: 14px;
+      transition: transform 0.25s ease;
+    }
+
+    .product-card:hover .card-cta-btn svg {
+      transform: translateX(2px);
+    }
+
+    /* --- End product card --- */
+
+    .email {
+      margin-bottom: 0;
     }
 
     .email a {
@@ -160,7 +323,7 @@
     }
 
     footer {
-      margin-top: 3rem;
+      margin-top: 2.5rem;
       font-size: 0.8rem;
       color: var(--text-muted);
     }
@@ -181,11 +344,37 @@
 
     <p class="tagline">We build thoughtful tools for home organization.</p>
 
-    <p class="product">Settlewood, our first app, uses AI to help you declutter your home one room at a time. Coming soon in 2026.</p>
+    <a class="product-card" href="https://settlewood.app" target="_blank" rel="noopener">
+      <div class="card-header">
+        <span class="card-title">Settlewood</span>
+        <span class="live-badge">
+          <span class="live-dot" aria-hidden="true"></span>
+          Live
+        </span>
+      </div>
+      <p class="card-subtitle">Come home to calm</p>
+      <p class="card-description">
+        Our first app uses AI to help you declutter your home, one room at a time.
+      </p>
+      <span class="card-cta-btn">
+        Try Settlewood
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 8h10M9 4l4 4-4 4"/>
+        </svg>
+      </span>
+    </a>
 
     <p class="email">
-      <a href="mailto:hello@cedarandfoglabs.com">hello@cedarandfoglabs.com</a>
+      <a id="contact" href="#">hello@<!-- -->cedarandfoglabs.com</a>
     </p>
+    <script>
+      (function() {
+        var u = 'hello', d = 'cedarandfoglabs.com';
+        var a = document.getElementById('contact');
+        a.href = 'mailto:' + u + '@' + d;
+        a.textContent = u + '@' + d;
+      })();
+    </script>
 
     <footer>
       &copy; 2026 Cedar &amp; Fog Labs, LLC
