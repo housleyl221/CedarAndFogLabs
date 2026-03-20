@@ -3,9 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cedar and Fog Labs</title>
-  <meta name="description" content="Cedar and Fog Labs — software studio crafting thoughtful digital tools. Makers of Settlewood, the AI-powered home decluttering app.">
+  <title>Cedar and Fog Labs — Home Organization Software</title>
+  <meta name="description" content="Cedar and Fog Labs builds thoughtful tools for home organization. Try Settlewood, our AI-powered app that helps you declutter your home one room at a time.">
+  <link rel="canonical" href="https://cedarandfoglabs.com/">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌲</text></svg>">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cedarandfoglabs.com/">
+  <meta property="og:title" content="Cedar and Fog Labs — Home Organization Software">
+  <meta property="og:description" content="Makers of Settlewood, the AI-powered app that helps you declutter your home one room at a time.">
+  <meta property="og:image" content="https://cedarandfoglabs.com/og-image.jpg">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cedar and Fog Labs — Home Organization Software">
+  <meta name="twitter:description" content="Makers of Settlewood, the AI-powered app that helps you declutter your home one room at a time.">
+  <meta name="twitter:image" content="https://cedarandfoglabs.com/og-image.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Lora:wght@500;600&display=swap" rel="stylesheet">
@@ -80,6 +94,7 @@
       padding: 2rem;
       text-align: center;
     }
+
 
     .content {
       max-width: 540px;
@@ -327,7 +342,51 @@
       font-size: 0.8rem;
       color: var(--text-muted);
     }
+
+    footer p + p {
+      margin-top: 0.35rem;
+    }
+
+    footer a {
+      color: var(--text-muted);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: color 0.2s ease;
+    }
+
+    footer a:hover {
+      color: var(--sage);
+    }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Cedar and Fog Labs",
+    "url": "https://cedarandfoglabs.com",
+    "description": "Software studio crafting thoughtful tools for home organization.",
+    "email": "hello@cedarandfoglabs.com"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Settlewood",
+    "url": "https://settlewood.app",
+    "applicationCategory": "LifestyleApplication",
+    "description": "AI-powered app that helps you declutter your home one room at a time.",
+    "offers": {
+      "@type": "Offer",
+      "availability": "https://schema.org/InStock"
+    },
+    "creator": {
+      "@type": "Organization",
+      "name": "Cedar and Fog Labs",
+      "url": "https://cedarandfoglabs.com"
+    }
+  }
+  </script>
 </head>
 <body>
   <main class="content">
@@ -377,7 +436,8 @@
     </script>
 
     <footer>
-      &copy; 2026 Cedar &amp; Fog Labs, LLC
+      <p>&copy; 2026 Cedar &amp; Fog Labs, LLC</p>
+      <p>Photo by <a href="https://unsplash.com/@nataliablauth" target="_blank" rel="noopener">Natalia Blauth</a> on <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></p>
     </footer>
   </main>
 </body>
