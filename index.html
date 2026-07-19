@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cedar and Fog Labs — Home Organization Software</title>
-  <meta name="description" content="Cedar and Fog Labs builds thoughtful tools around home, lifestyle, and travel. Try Settlewood, our AI-powered app that helps you tidy your home one room at a time.">
+  <meta name="description" content="Cedar and Fog Labs builds thoughtful tools around home, lifestyle, and travel. Try Settlewood, our AI-powered app that helps you tidy your home one room at a time, and Chickadee, our camping gear and meal planner (coming soon).">
   <link rel="canonical" href="https://cedarandfoglabs.com/">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌲</text></svg>">
 
@@ -12,13 +12,13 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://cedarandfoglabs.com/">
   <meta property="og:title" content="Cedar and Fog Labs — Home Organization Software">
-  <meta property="og:description" content="Makers of Settlewood, the AI-powered app that helps you declutter your home one room at a time.">
+  <meta property="og:description" content="Makers of Settlewood, our AI-powered home-tidying app, and Chickadee, our camping gear and meal planner (coming soon).">
   <meta property="og:image" content="https://cedarandfoglabs.com/og-image.jpg">
 
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Cedar and Fog Labs — Home Organization Software">
-  <meta name="twitter:description" content="Makers of Settlewood, the AI-powered app that helps you declutter your home one room at a time.">
+  <meta name="twitter:description" content="Makers of Settlewood, our AI-powered home-tidying app, and Chickadee, our camping gear and meal planner (coming soon).">
   <meta name="twitter:image" content="https://cedarandfoglabs.com/og-image.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,6 +40,11 @@
       --sw-sage: #527264;
       --sw-sage-dark: #3D5447;
       --sw-accent: #C4926E;
+      --ch-cedar: #a06a3f;
+      --ch-cedar-dark: #7d5230;
+      --ch-accent: #d9a441;
+      --ch-navy: #24405e;
+      --ch-navy-dark: #182d43;
       --cedar: #8b5e3c;
       --cedar-light: #a47551;
       --cream: #faf8f4;
@@ -242,6 +247,47 @@
       50% { opacity: 0.35; }
     }
 
+    .soon-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: "DM Sans", sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ch-cedar-dark);
+      background: rgba(217,164,65,0.14);
+      padding: 4px 10px;
+      border-radius: 99px;
+      border: 1px solid rgba(160,106,63,0.18);
+    }
+
+    /* --- Chickadee card accents --- */
+    .product-card.chickadee::before {
+      background: linear-gradient(90deg, var(--ch-cedar), var(--ch-accent), var(--ch-cedar));
+    }
+
+    .product-card.chickadee .card-title {
+      color: var(--ch-navy);
+    }
+
+    .product-card.chickadee .card-subtitle {
+      color: var(--ch-accent);
+    }
+
+    .product-card.chickadee .card-cta-btn {
+      background: var(--ch-navy);
+    }
+
+    .product-card.chickadee .card-cta-btn:hover {
+      background: var(--ch-navy-dark);
+    }
+
+    .product-card.chickadee .card-cta-btn:focus-visible {
+      outline-color: var(--ch-navy);
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .live-dot {
         animation: none;
@@ -373,7 +419,7 @@
     "@type": "Organization",
     "name": "Cedar and Fog Labs",
     "url": "https://cedarandfoglabs.com",
-    "description": "Software studio crafting thoughtful tools for home organization.",
+    "description": "Software studio crafting thoughtful tools for home and the outdoors.",
     "email": "hello@cedarandfoglabs.com"
   }
   </script>
@@ -396,6 +442,25 @@
     }
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Chickadee",
+    "url": "https://chickadeecamping.com",
+    "applicationCategory": "TravelApplication",
+    "description": "Camping gear and meal planner that helps you plan gear and meals for every trip.",
+    "offers": {
+      "@type": "Offer",
+      "availability": "https://schema.org/PreOrder"
+    },
+    "creator": {
+      "@type": "Organization",
+      "name": "Cedar and Fog Labs",
+      "url": "https://cedarandfoglabs.com"
+    }
+  }
+  </script>
 </head>
 <body>
   <main class="content">
@@ -410,7 +475,7 @@
 
     <div class="divider" role="presentation"></div>
 
-    <p class="tagline">We build thoughtful tools for home organization.</p>
+    <p class="tagline">We build thoughtful tools for home and the outdoors.</p>
 
     <div class="product-card">
       <div class="card-header">
@@ -433,6 +498,22 @@
         </a>
         <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.cleanmyhouse" target="_blank" rel="noopener">
           <img src="google-play-badge.svg" alt="Get it on Google Play" width="148" height="44">
+        </a>
+      </div>
+    </div>
+
+    <div class="product-card chickadee">
+      <div class="card-header">
+        <span class="card-title">Chickadee</span>
+        <span class="soon-badge">Coming soon</span>
+      </div>
+      <p class="card-subtitle">Camping Gear &amp; Meal Planner</p>
+      <p class="card-description">
+        Plan your gear and meals for every trip, so you can spend less time packing and more time outside.
+      </p>
+      <div class="card-cta-row">
+        <a class="card-cta-btn" href="https://chickadeecamping.com" target="_blank" rel="noopener">
+          Learn more
         </a>
       </div>
     </div>
